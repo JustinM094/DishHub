@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.recipe-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  .recipe-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex-basis: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40em;
+  }
+}
+
+/* Recipe Title */
+.recipe-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Recipe Description */
+.recipe-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+/* Recipe Image */
+.recipe-image {
+  width: 15rem;
+  height: 15rem;
+  margin: 1rem;
+  box-shadow: 4px 3px 6px -1px grey;
+}
+
+/* Recipe Ingredients */
+.recipe-ingredients {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Recipe Instructions */
+.recipe-instructions {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Customize Buttons or Icons for Actions (e.g., Edit, Delete) */
+.recipe-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Example Edit Button */
+.edit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Example Delete Button */
+.delete-button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Hover Effect (Change as Desired) */
+.recipe-card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease-in-out;
+}
+
+.welcome-container {
+  margin: 2rem auto;
+  width: 60%;
+  text-align: center;
+  padding: 5rem 3rem;
+  border: 1px solid var(--outline);
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+/* This targets any h1 that is a child of an element with the .welcome-container class */
+.welcome-container > h1 {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary);
+}
+
+/* This targets any div that is a child of an element with the .welcome-container class */
+.welcome-container > div {
+  font-style: italic;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+fieldset {
+  width: 90%;
+  margin: 1rem;
+  border-radius: 9px;
+  box-shadow: 2px 2px 5px -1px grey;
+  border-style: none;
+  background-color: whitesmoke;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.btn {
+  align-self: flex-end;
+  margin-right: 3rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 4px -1px grey;
+  background-color: darksalmon;
+  border: none;
   color: white;
+  border-radius: 7px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.form-group {
+  margin: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form label {
+  margin-right: 1rem;
+}
+
+form .radio {
+  margin: 0.25rem;
+}
+
+form input {
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 6px;
+  border-style: double;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: var(--dark);
+  margin: 0;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.navbar-item {
+  flex-basis: 20%;
+  list-style-type: none;
+  text-align: center;
+  color: var(--offWhite);
+}
+
+.navbar-link {
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 1px;
+}
+
+.navbar-logout {
+  margin-left: auto;
+}
+
+.navbar-link:hover {
+  color: var(--primary);
 }
