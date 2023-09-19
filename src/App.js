@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { DisplayHomePage } from "./components/HomePage/HomePage";
+import { Routes, Route, Outlet } from "react-router-dom";
+import { NavBar } from "./components/nav/NavBar";
+import { DisplayUsersRecipes } from "./components/UsersRecipes/UsersRecipes.js";
+import { NewRecipeForm } from "./components/forms/AddRecipe";
+import { RecipeDetails } from "./components/RecipeDetails/RecipeDetails";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <NavBar />
+            <Outlet />
+          </>
+        }
+      >
+        <Route index element={<DisplayHomePage />} />
+        <Route path="recipes">
+          <Route index element={<DisplayUsersRecipes />} />
+          <Route path=":recipeId" element={<RecipeDetails />} />
+        </Route>
+        <Route path="add" element={<NewRecipeForm />} />
+      </Route>
+    </Routes>
   );
-}
-
-export default App;
+};
