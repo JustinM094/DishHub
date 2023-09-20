@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import { getRecipes } from "../../Services/RecipeService";
+import { getRecipesByUserId } from "../../Services/RecipeService";
 import "./UsersRecipes.css";
 import { useNavigate } from "react-router-dom";
 
-export const DisplayUsersRecipes = () => {
+export const DisplayUsersRecipes = ({ currentUser }) => {
   const [allUserRecipes, setAllUserRecipes] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getRecipes().then((recipeArray) => {
+    getRecipesByUserId(currentUser.id).then((recipeArray) => {
       setAllUserRecipes(recipeArray);
       console.log("recipes set");
     });
-  }, []);
+  }, [currentUser]);
 
   return (
     <>

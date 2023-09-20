@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { postRecipes } from "../../Services/RecipeService";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { getCategory } from "../../Services/CategoryService";
+import { editRecipe, getRecipeById } from "../../Services/RecipeService";
+import "../../App.css";
 
-export const NewRecipeForm = () => {
-  const [categories, setCategories] = useState([]);
-  const [newRecipe, setNewRecipe] = useState({
+export const EditRecipe = () => {
+  const [recipe, setRecipe] = useState({
     title: "",
     picture: "",
     description: "",
@@ -13,19 +13,23 @@ export const NewRecipeForm = () => {
     instructions: "",
     categoryId: 0,
   });
+  const [categories, setCategories] = useState([]);
+
+  const { recipeId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
+    getRecipeById(recipeId).then((recipeData) => {
+      setRecipe(recipeData);
+    });
     getCategory().then((catArray) => {
       setCategories(catArray);
-      console.log("categories set!");
     });
-  }, []);
+  }, [recipeId]);
 
-  const handleInputChange = (event) => {
-    const itemCopy = { ...newRecipe };
-    itemCopy[event.target.name] = event.target.value;
-    setNewRecipe(itemCopy);
+  const handleEditChange = (event) => {
+    const { name, value } = event.target;
+    setRecipe({ ...recipe, [name]: value });
   };
 
   const handleSave = (event) => {
@@ -36,25 +40,25 @@ export const NewRecipeForm = () => {
       return;
     }
 
-    const newRecipeItem = {
-      title: newRecipe.title,
-      picture: newRecipe.picture,
-      description: newRecipe.description,
-      ingredients: newRecipe.ingredients,
-      instructions: newRecipe.instructions,
-      categoryId: parseInt(newRecipe.categoryId),
+    const updatedRecipe = {
+      title: recipe.title,
+      picture: recipe.picture,
+      description: recipe.description,
+      ingredients: recipe.ingredients,
+      instructions: recipe.instructions,
+      categoryId: recipe.categoryId,
       userId: parseInt(loggedInUserId.id),
     };
 
-    postRecipes(newRecipeItem).then(() => {
-      navigate("/recipes");
+    editRecipe(recipeId, updatedRecipe).then(() => {
+      navigate(`/recipes/${recipeId}`);
     });
   };
 
   return (
     <form className="add-recipe-form">
       <header>
-        <h1>Add Recipe</h1>
+        <h1>Edit Recipe</h1>
       </header>
       <fieldset>
         <h2>Recipe Name</h2>
@@ -62,9 +66,9 @@ export const NewRecipeForm = () => {
           <input
             name="title"
             placeholder="recipe title"
-            value={newRecipe.title}
+            value={recipe.title}
             type="text"
-            onChange={handleInputChange}
+            onChange={handleEditChange}
           />
         </div>
       </fieldset>
@@ -75,8 +79,8 @@ export const NewRecipeForm = () => {
             name="picture"
             placeholder="recipe image"
             type="text"
-            value={newRecipe.picture}
-            onChange={handleInputChange}
+            value={recipe.picture}
+            onChange={handleEditChange}
           />
         </div>
       </fieldset>
@@ -87,8 +91,8 @@ export const NewRecipeForm = () => {
             name="description"
             placeholder="recipe description"
             type="text"
-            value={newRecipe.description}
-            onChange={handleInputChange}
+            value={recipe.description}
+            onChange={handleEditChange}
           />
         </div>
       </fieldset>
@@ -99,8 +103,8 @@ export const NewRecipeForm = () => {
             name="ingredients"
             placeholder="recipe ingredients"
             type="text"
-            value={newRecipe.ingredients}
-            onChange={handleInputChange}
+            value={recipe.ingredients}
+            onChange={handleEditChange}
           />
         </div>
       </fieldset>
@@ -111,8 +115,8 @@ export const NewRecipeForm = () => {
             name="instructions"
             placeholder="recipe instructions"
             type="text"
-            value={newRecipe.instructions}
-            onChange={handleInputChange}
+            value={recipe.instructions}
+            onChange={handleEditChange}
           />
         </div>
       </fieldset>
@@ -120,8 +124,8 @@ export const NewRecipeForm = () => {
         <h2>Category</h2>
         <select
           name="categoryId"
-          onChange={handleInputChange}
-          value={newRecipe.categoryId}
+          onChange={handleEditChange}
+          value={recipe.categoryId}
         >
           <option value={0}>Please select a category</option>
           {categories.map((catObj) => {
@@ -134,7 +138,7 @@ export const NewRecipeForm = () => {
         </select>
       </fieldset>
       <button className="btn" onClick={handleSave}>
-        Commit
+        Merge
       </button>
     </form>
   );

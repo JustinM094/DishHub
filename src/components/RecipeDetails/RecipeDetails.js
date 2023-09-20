@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getRecipeById } from "../../Services/RecipeService";
+import { useParams, useNavigate } from "react-router-dom";
+import { deleteRecipe, getRecipeById } from "../../Services/RecipeService";
 import "./RecipeDetails.css";
 
 export const RecipeDetails = () => {
   const [recipeDetails, setRecipeDetails] = useState({});
   const { recipeId } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getRecipeById(recipeId).then((recipeObj) => {
@@ -13,24 +15,51 @@ export const RecipeDetails = () => {
     });
   }, [recipeId]);
 
+  const handleDelete = () => {
+    deleteRecipe(recipeId).then(() => {
+      navigate("/recipes");
+    });
+  };
+
   return (
     <div>
-      <article className="recipe-container">
-        <section className="recipe-card" key={recipeDetails.id}>
-          <header className="recipe-title">{recipeDetails.title}</header>
+      <article className="recipe-details-container">
+        <section className="recipe-details-card" key={recipeDetails.id}>
+          <header className="recipe-details-title">
+            {recipeDetails.title}
+          </header>
+          <p className="recipe-details-description">
+            {recipeDetails.categoryId ? recipeDetails.category.mealType : "N/A"}
+          </p>
           <img
-            className="recipe-image"
+            className="recipe-details-image"
             src={recipeDetails.picture}
             alt={recipeDetails.title}
           />
-          <p className="recipe-description">{recipeDetails.description}</p>
-          <div className="recipe-ingredients">
+          <div className="recipe-details-description">
+            <h3>Description:</h3>
+            {recipeDetails.description}
+          </div>
+          <div className="recipe-details-ingredients">
             <h3>Ingredients:</h3>
             <p>{recipeDetails.ingredients}</p>
           </div>
-          <div className="recipe-instructions">
+          <div className="recipe-details-instructions">
             <h3>Instructions:</h3>
             <p>{recipeDetails.instructions}</p>
+          </div>
+          <div className="recipe-details-actions">
+            <button className="delete-button" onClick={handleDelete}>
+              Delete
+            </button>
+            <button
+              className="edit-button"
+              onClick={() => {
+                navigate(`/recipes/${recipeDetails.id}/edit`);
+              }}
+            >
+              Edit
+            </button>
           </div>
         </section>
       </article>

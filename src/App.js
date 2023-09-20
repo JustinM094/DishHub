@@ -1,29 +1,23 @@
-import { DisplayHomePage } from "./components/HomePage/HomePage";
 import { Routes, Route, Outlet } from "react-router-dom";
-import { NavBar } from "./components/nav/NavBar";
-import { DisplayUsersRecipes } from "./components/UsersRecipes/UsersRecipes.js";
-import { NewRecipeForm } from "./components/forms/AddRecipe";
-import { RecipeDetails } from "./components/RecipeDetails/RecipeDetails";
+import { Login } from "./components/authentication/Login";
+import { Register } from "./components/authentication/Register";
+import { Authorized } from "./views/Authorized";
+import { ApplicationViews } from "./views/ApplicationViews";
 
 export const App = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/Register" element={<Register />} />
+
       <Route
-        path="/"
+        path="*"
         element={
-          <>
-            <NavBar />
-            <Outlet />
-          </>
+          <Authorized>
+            <ApplicationViews />
+          </Authorized>
         }
-      >
-        <Route index element={<DisplayHomePage />} />
-        <Route path="recipes">
-          <Route index element={<DisplayUsersRecipes />} />
-          <Route path=":recipeId" element={<RecipeDetails />} />
-        </Route>
-        <Route path="add" element={<NewRecipeForm />} />
-      </Route>
+      />
     </Routes>
   );
 };

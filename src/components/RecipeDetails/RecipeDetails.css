@@ -1,85 +1,75 @@
-.recipe-container {
+.recipe-details-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-
-  .recipe-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    flex-basis: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 40em;
-  }
+}
+.recipe-details-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* Recipe Title */
-.recipe-title {
+.recipe-details-title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
   color: #333;
+  width: 100%;
 }
 
-/* Recipe Description */
-.recipe-description {
+.recipe-details-description {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #777;
+  color: #555;
+  width: 100%;
 }
 
-/* Recipe Image */
-.recipe-image {
+.recipe-details-image {
   width: 15rem;
   height: 15rem;
   margin: 1rem;
   box-shadow: 4px 3px 6px -1px grey;
 }
 
-/* Recipe Ingredients */
-.recipe-ingredients {
+.recipe-details-ingredients,
+.recipe-details-instructions {
   font-size: 14px;
   margin-top: 10px;
   color: #555;
+  flex-basis: 100%;
+  width: 100%;
 }
 
-/* Recipe Instructions */
-.recipe-instructions {
-  font-size: 14px;
-  margin-top: 10px;
-  color: #555;
-}
-
-/* Customize Buttons or Icons for Actions (e.g., Edit, Delete) */
-.recipe-actions {
+.recipe-details-actions {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-/* Example Edit Button */
-.edit-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-/* Example Delete Button */
+.edit-button,
 .delete-button {
-  background-color: #ff0000;
+  background-color: #333;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #555;
+  color: #fff;
 }
