@@ -15,11 +15,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40em;
+    height: auto;
   }
 }
 
-/* Recipe Title */
 .recipe-title {
   font-size: 24px;
   font-weight: bold;
@@ -27,14 +26,12 @@
   color: #333;
 }
 
-/* Recipe Description */
 .recipe-description {
   font-size: 16px;
   margin-bottom: 10px;
   color: #777;
 }
 
-/* Recipe Image */
 .recipe-image {
   width: 15rem;
   height: 15rem;
@@ -42,21 +39,18 @@
   box-shadow: 4px 3px 6px -1px grey;
 }
 
-/* Recipe Ingredients */
 .recipe-ingredients {
   font-size: 14px;
   margin-top: 10px;
   color: #555;
 }
 
-/* Recipe Instructions */
 .recipe-instructions {
   font-size: 14px;
   margin-top: 10px;
   color: #555;
 }
 
-/* Customize Buttons or Icons for Actions (e.g., Edit, Delete) */
 .recipe-actions {
   display: flex;
   justify-content: space-between;
@@ -64,27 +58,6 @@
   margin-top: 15px;
 }
 
-/* Example Edit Button */
-.edit-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-/* Example Delete Button */
-.delete-button {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-/* Hover Effect (Change as Desired) */
 .recipe-card:hover {
   transform: translateY(-4px);
   transition: transform 0.2s ease-in-out;
@@ -100,14 +73,12 @@
   border-radius: 0.5rem;
 }
 
-/* This targets any h1 that is a child of an element with the .welcome-container class */
 .welcome-container > h1 {
   display: flex;
   flex-direction: column;
   color: var(--primary);
 }
 
-/* This targets any div that is a child of an element with the .welcome-container class */
 .welcome-container > div {
   font-style: italic;
 }
@@ -131,12 +102,12 @@ fieldset {
 }
 
 .btn {
-  align-self: flex-end;
-  margin-right: 3rem;
+  align-self: center;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
+  margin: 1rem;
   box-shadow: 2px 2px 4px -1px grey;
-  background-color: darksalmon;
+  background-color: #333;
   border: none;
   color: white;
   border-radius: 7px;
@@ -151,43 +122,17 @@ form label {
   margin-right: 1rem;
 }
 
-form .radio {
-  margin: 0.25rem;
-}
-
 form input {
   font-size: 1rem;
-  padding: 0.25rem;
   border-radius: 6px;
   border-style: double;
-}
-
-.navbar {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: var(--dark);
-  margin: 0;
   width: 100%;
   padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
 }
 
-.navbar-item {
-  flex-basis: 20%;
-  list-style-type: none;
-  text-align: center;
-  color: var(--offWhite);
-}
-
-.navbar-link {
-  text-decoration: none;
-  font-family: "Quicksand", sans-serif;
-  letter-spacing: 1px;
-}
-
-.navbar-logout {
-  margin-left: auto;
-}
-
-.navbar-link:hover {
-  color: var(--primary);
+.btn:hover {
+  background-color: #555;
+  color: #fff;
 }
