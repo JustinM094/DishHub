@@ -6,6 +6,13 @@ export const NavBar = () => {
   const navigate = useNavigate();
   return (
     <ul className="navbar">
+      <div className="navbar-logo">
+        <img
+          src="Logo/logo.png"
+          alt="DishHub Logo"
+          className="navbar-logo-img"
+        />
+      </div>
       <li className="navbar-item">
         <Link className="navbar-link" to="/">
           Home

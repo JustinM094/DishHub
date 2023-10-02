@@ -34,6 +34,13 @@ export const Login = () => {
       <section>
         <form className="form-login" onSubmit={handleLogin}>
           <h1>DishHub</h1>
+          <div className="navbar-logo">
+            <img
+              src="Logo/logo.png"
+              alt="DishHub Logo"
+              className="login-logo-img"
+            />
+          </div>
           <h2>Please sign in</h2>
           <fieldset>
             <div className="form-group">
@@ -48,13 +55,11 @@ export const Login = () => {
               />
             </div>
           </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <button className="login-btn btn-info" type="submit">
-                Sign in
-              </button>
-            </div>
-          </fieldset>
+          <div className="form-group">
+            <button className="login-btn btn-info" type="submit">
+              Sign in
+            </button>
+          </div>
         </form>
       </section>
       <section>

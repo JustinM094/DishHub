@@ -9,6 +9,7 @@
 
 .navbar-item {
   border: 1px solid #555;
+  border-radius: 15px;
   flex-basis: 20%;
   list-style-type: none;
   text-align: center;
@@ -32,4 +33,10 @@
 .navbar-item:hover {
   background-color: #555;
   color: #fff;
+}
+
+.navbar-logo-img {
+  width: 3em;
+  height: auto;
+  border-radius: 25px;
 }
