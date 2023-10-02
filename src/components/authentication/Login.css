@@ -27,7 +27,17 @@
 }
 
 .login-btn {
-  align-self: flex-end;
+  align-self: center;
+  width: 10rem;
+  height: 3em;
+  border-radius: 15px;
+  background-color: #333;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #555;
+  color: #fff;
 }
 
 .login-btn:focus {
@@ -76,4 +86,9 @@ fieldset {
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.login-logo-img {
+  width: 10rem;
+  height: auto;
 }
