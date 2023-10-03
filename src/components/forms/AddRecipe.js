@@ -134,7 +134,7 @@ export const NewRecipeForm = () => {
         </select>
       </fieldset>
       <button className="btn" onClick={handleSave}>
-        Commit
+        Dish Commit
       </button>
     </form>
   );

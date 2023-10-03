@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-top: 5em;
 
   .user-recipe-card {
     background-color: #fff;
@@ -20,8 +21,9 @@
 }
 
 .user-recipe-title {
-  font-size: 24px;
+  font-size: medium;
   font-weight: bold;
+  font-family: "Courier New", monospace;
   margin-bottom: 10px;
   color: #333;
 }

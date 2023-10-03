@@ -16,37 +16,41 @@ export const DisplayHomePage = () => {
   }, []);
   return (
     <>
-      <div className="welcome-container">
-        <h1>
-          <span>Welcome to</span>
-          <span>DishHub</span>
-        </h1>
-      </div>
-      <div>
-        <h2>Recently added Recipes</h2>
-      </div>
-      <div>
-        <article className="user-recipe-container">
-          {everyUsersRecipes.map((recipe) => {
-            return (
-              <section
-                className="user-recipe-card"
-                key={recipe.id}
-                onClick={() => {
-                  navigate(`${recipe.id}`);
-                }}
-              >
-                <header className="user-recipe-title">{recipe.title}</header>
-                <img
-                  className="user-recipe-image"
-                  src={recipe.picture}
-                  alt={recipe.title}
-                />
-              </section>
-            );
-          })}
-        </article>
-      </div>
+      <section className="welcome-page">
+        <div className="welcome-background">
+          <h1>
+            <span>Welcome to</span>
+          </h1>
+          <h1>
+            <span>DishHub</span>
+          </h1>
+        </div>
+        <div className="recent-recipes">
+          <h2>Recently added Recipes</h2>
+        </div>
+        <div>
+          <article className="user-recipe-container">
+            {everyUsersRecipes.map((recipe) => {
+              return (
+                <section
+                  className="user-recipe-card"
+                  key={recipe.id}
+                  onClick={() => {
+                    navigate(`${recipe.id}`);
+                  }}
+                >
+                  <header className="user-recipe-title">{recipe.title}</header>
+                  <img
+                    className="user-recipe-image"
+                    src={recipe.picture}
+                    alt={recipe.title}
+                  />
+                </section>
+              );
+            })}
+          </article>
+        </div>
+      </section>
     </>
   );
 };
