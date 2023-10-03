@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getRecipeById } from "../../Services/RecipeService";
+import "../../App.css";
 
 export const DisplayHomeRecipeDetails = () => {
   const [allRecipeDetails, setAllRecipeDetails] = useState({});
@@ -29,9 +30,10 @@ export const DisplayHomeRecipeDetails = () => {
             src={allRecipeDetails.picture}
             alt={allRecipeDetails.title}
           />
-          <p className="recipe-details-description">
+          <div className="recipe-details-description">
+            <h3>Description:</h3>
             {allRecipeDetails.description}
-          </p>
+          </div>
           <div className="recipe-details-ingredients">
             <h3>Ingredients:</h3>
             <p>{allRecipeDetails.ingredients}</p>
