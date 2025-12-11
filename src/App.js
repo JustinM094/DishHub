@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Login } from "./components/authentication/Login";
 import { Register } from "./components/authentication/Register";
 import { Authorized } from "./views/Authorized";
