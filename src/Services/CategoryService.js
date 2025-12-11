@@ -1,5 +1,5 @@
 export const getCategory = () => {
-  return fetch("http://https://dishhub-api.onrender.com/categories").then(
-    (res) => res.json()
+  return fetch("https://dishhub-api.onrender.com/categories").then((res) =>
+    res.json()
   );
 };

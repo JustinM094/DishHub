@@ -1,23 +1,23 @@
 export const getRecipes = () => {
-  return fetch(`http://https://dishhub-api.onrender.com/Recipes`).then((res) =>
+  return fetch(`https://dishhub-api.onrender.com/Recipes`).then((res) =>
     res.json()
   );
 };
 
 export const getRecipesByUserId = (userId) => {
   return fetch(
-    `http://https://dishhub-api.onrender.com/Recipes?userId=${userId}`
+    `https://dishhub-api.onrender.com/Recipes?userId=${userId}`
   ).then((res) => res.json());
 };
 
 export const getRecipeById = (id) => {
   return fetch(
-    `http://https://dishhub-api.onrender.com/Recipes/${id}?_expand=category`
+    `https://dishhub-api.onrender.com/Recipes/${id}?_expand=category`
   ).then((res) => res.json());
 };
 
 export const postRecipes = (recipe) => {
-  return fetch(`http://https://dishhub-api.onrender.com/Recipes`, {
+  return fetch(`https://dishhub-api.onrender.com/Recipes`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export const postRecipes = (recipe) => {
 };
 
 export const deleteRecipe = (recipeId) => {
-  return fetch(`http://https://dishhub-api.onrender.com/Recipes/${recipeId}`, {
+  return fetch(`https://dishhub-api.onrender.com/Recipes/${recipeId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export const deleteRecipe = (recipeId) => {
 };
 
 export const editRecipe = (recipeId, updatedRecipe) => {
-  return fetch(`http://https://dishhub-api.onrender.com/Recipes/${recipeId}`, {
+  return fetch(`https://dishhub-api.onrender.com/Recipes/${recipeId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
